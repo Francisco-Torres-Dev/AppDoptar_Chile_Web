@@ -5,8 +5,7 @@ import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { useAuth } from '../contexts/AuthContext';
 import { petService } from '../services/petService';
 import { campaignService } from '../services/campaignService';
-import { foundationService } from '../services/foundationService';
-import type { Pet, Campaign, Foundation } from '../types';
+import type { Pet, Campaign } from '../types';
 
 export default function FavoritesPage() {
   const { user } = useAuth();

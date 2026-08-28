@@ -39,9 +39,9 @@ function createMarkerIcon(type: ReportType, urgency: string) {
 }
 
 export default function MapPage() {
+  const { showToast } = useToast();
   const navigate = useNavigate();
   const { user } = useAuth();
-  const { showToast } = useToast();
   const [reports, setReports] = useState<Report[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedFilter, setSelectedFilter] = useState('');

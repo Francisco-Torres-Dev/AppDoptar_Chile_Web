@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../../components/common/Breadcrumbs';
 import { LoadingSpinner } from '../../components/common/LoadingSpinner';
 import { useAuth } from '../../contexts/AuthContext';
-import { useToast } from '../../contexts/ToastContext';
 import { findCompatiblePets } from '../../features/adoption/matchService';
 import { adoptionService } from '../../services/adoptionService';
 import { petService } from '../../services/petService';
@@ -23,7 +22,6 @@ const defaultPrefs: Omit<AdoptionPreference, 'id' | 'userId'> = {
 
 export default function MatchPage() {
   const { user } = useAuth();
-  const { showToast } = useToast();
   const [prefs, setPrefs] = useState(defaultPrefs);
   const [results, setResults] = useState<MatchResult[]>([]);
   const [loading, setLoading] = useState(false);

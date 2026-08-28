@@ -9,7 +9,7 @@ import type {
   Pet,
   Report,
   User,
-} from '../types';
+} from '../../types';
 
 export interface MockStore {
   users: (User & { passwordHash: string })[];

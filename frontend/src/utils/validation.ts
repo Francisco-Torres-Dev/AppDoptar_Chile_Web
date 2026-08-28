@@ -19,7 +19,7 @@ export function passwordsMatch(password: string, confirm: string): boolean {
 // Basic validation
 export function required(value: string | number | undefined): boolean {
   if (typeof value === 'number') return true;
-  return value?.toString().trim().length > 0 ?? false;
+  return !!value?.toString().trim();
 }
 
 export function minLength(value: string, min: number): boolean {

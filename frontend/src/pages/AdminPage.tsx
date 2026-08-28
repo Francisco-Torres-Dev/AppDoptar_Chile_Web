@@ -14,7 +14,7 @@ export default function AdminPage() {
   const [pets, setPets] = useState<Pet[]>([]);
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
   const [reports, setReports] = useState<Report[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
 
   useEffect(() => {
     if (user?.role === 'ADMIN') {

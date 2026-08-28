@@ -1,4 +1,4 @@
-import type { AdoptionPreference, MatchResult, Pet } from '../types';
+import type { AdoptionPreference, MatchResult, Pet } from '../../types';
 
 export function calculateCompatibility(pet: Pet, prefs: AdoptionPreference): MatchResult {
   let score = 50;
