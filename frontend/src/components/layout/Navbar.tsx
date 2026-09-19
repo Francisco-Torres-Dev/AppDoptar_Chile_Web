@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { APP_NAME } from '../../utils/constants';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNotifications } from '../../hooks/useNotifications';
+import logo from '../../assets/Logo1.png';
 
 export default function Navbar() {
   const { user, logout, hasRole } = useAuth();
@@ -33,9 +34,10 @@ export default function Navbar() {
   return (
     <header className="site-nav">
       <div className="container py-3 d-flex align-items-center justify-content-between gap-3">
-        <Link to="/" className="brand" onClick={close}>
-          <span className="brand-mark" aria-hidden>🐾</span>
-          {APP_NAME}
+        <Link to="/" className="brand" onClick={close} aria-label={APP_NAME}>
+          <span className="brand-logo-wrap">
+            <img src={logo} alt={APP_NAME} className="brand-logo" />
+          </span>
         </Link>
 
         <nav className="nav-links d-none d-lg-flex align-items-center">

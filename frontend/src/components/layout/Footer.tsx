@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
 import { APP_NAME } from '../../utils/constants';
+import logo from '../../assets/Logo1.png';
 
 export function Footer() {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="row g-4">
+        <div className="row g-4 align-items-start">
           <div className="col-md-5">
-            <h5 className="font-display mb-3">🐾 {APP_NAME}</h5>
-            <p className="mb-0" style={{ color: '#cfe3d6' }}>
+            <img src={logo} alt={APP_NAME} className="footer-logo mb-3" />
+            <p className="mb-0" style={{ color: '#c5daf3' }}>
               Plataforma chilena para adopción responsable, apoyo a fundaciones y reportes de emergencias animales.
             </p>
           </div>
@@ -31,7 +32,7 @@ export function Footer() {
           </div>
         </div>
         <hr className="border-secondary my-4 opacity-25" />
-        <p className="small mb-0" style={{ color: '#9bb5a6' }}>
+        <p className="small mb-0" style={{ color: '#9bb8d9' }}>
           © {new Date().getFullYear()} {APP_NAME}. Datos de demostración marcados como Demo.
         </p>
       </div>

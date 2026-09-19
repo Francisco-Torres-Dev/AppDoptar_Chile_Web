@@ -10,6 +10,7 @@ import { reportService } from '../services/reportService';
 import { userService } from '../services/userService';
 import { formatCurrency } from '../utils/formatters';
 import type { Campaign, Pet, PlatformStats, Report } from '../types';
+import heroImg from '../assets/Hero1.png';
 
 export default function HomePage() {
   const [stats, setStats] = useState<PlatformStats | null>(null);
@@ -36,43 +37,19 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="hero">
-        <div className="container">
-          <div className="row align-items-center g-5">
-            <div className="col-lg-7">
-              <p className="text-uppercase fw-bold small mb-3" style={{ color: 'var(--clay)', letterSpacing: '0.12em' }}>
-                Chile · adopción y rescate
-              </p>
-              <h1>Conecta, ayuda y cambia una vida.</h1>
-              <p className="lead mt-3">
-                AppDoptar Chile une mascotas que necesitan un hogar con personas dispuestas a darles una segunda oportunidad.
-              </p>
-              <div className="d-flex flex-wrap gap-2 mt-4">
-                <Link to="/adopciones" className="btn btn-primary btn-lg">Adoptar una mascota</Link>
-                <Link to="/reportar" className="btn btn-ghost btn-lg">Reportar emergencia</Link>
-                <Link to="/donaciones" className="btn btn-accent btn-lg">Ayudar ahora</Link>
-              </div>
-            </div>
-            <div className="col-lg-5">
-              <div className="hero-panel">
-                <img
-                  className="hero-photo mb-3"
-                  src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&h=500&fit=crop"
-                  alt="Perros jugando al aire libre"
-                />
-                <div className="d-flex justify-content-between">
-                  <div>
-                    <strong className="d-block">{stats?.petsAvailable ?? 0} mascotas</strong>
-                    <span className="small text-muted">esperando hogar</span>
-                  </div>
-                  <div className="text-end">
-                    <strong className="d-block">{stats?.activeCampaigns ?? 0} campañas</strong>
-                    <span className="small text-muted">activas ahora</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <section className="hero-banner" aria-label="Inicio AppDoptar Chile">
+        <div className="hero-banner-frame">
+          <img src={heroImg} alt="Ellos te están esperando. Conecta, adopta y cambia una vida." className="hero-banner-img" />
+          <Link to="/adopciones" className="hero-hotspot hero-hotspot-adopt" aria-label="Ver mascotas en adopción" />
+          <Link to="/match" className="hero-hotspot hero-hotspot-how" aria-label="¿Cómo adoptar?" />
+          <Link to="/adopciones" className="hero-hotspot hero-hotspot-adopciones" aria-label="Adopciones seguras" />
+          <Link to="/donaciones" className="hero-hotspot hero-hotspot-bienestar" aria-label="Comprometidos con su bienestar" />
+          <Link to="/fundaciones" className="hero-hotspot hero-hotspot-comunidad" aria-label="Comunidad que hace la diferencia" />
+          <Link to="/adopciones" className="hero-hotspot hero-hotspot-cta-banner" aria-label="Cada adopción es una nueva historia" />
+        </div>
+        <div className="hero-actions-mobile">
+          <Link to="/adopciones" className="btn btn-primary">Ver mascotas en adopción</Link>
+          <Link to="/match" className="btn btn-outline-primary">¿Cómo adoptar?</Link>
         </div>
       </section>
 
@@ -80,9 +57,9 @@ export default function HomePage() {
         <div className="container">
           <div className="row g-4">
             {[
-              { to: '/adopciones', icon: '🏠', title: 'Adopción', desc: 'Encuentra un compañero y dale un hogar.', bg: '#e8f3ec' },
-              { to: '/crowdfunding', icon: '💚', title: 'Crowdfunding', desc: 'Apoya tratamientos, rescates y fundaciones.', bg: '#f8eae4' },
-              { to: '/mapa', icon: '🗺️', title: 'Mapa Animal', desc: 'Reporta y ayuda a animales que necesitan asistencia.', bg: '#efe8d8' },
+              { to: '/adopciones', icon: '🏠', title: 'Adopción', desc: 'Encuentra un compañero y dale un hogar.', bg: '#e8f1fb' },
+              { to: '/crowdfunding', icon: '💚', title: 'Crowdfunding', desc: 'Apoya tratamientos, rescates y fundaciones.', bg: '#fde8ea' },
+              { to: '/mapa', icon: '🗺️', title: 'Mapa Animal', desc: 'Reporta y ayuda a animales que necesitan asistencia.', bg: '#eaf6fc' },
             ].map((m) => (
               <div className="col-md-4" key={m.title}>
                 <Link to={m.to} className="text-dark">
@@ -127,7 +104,7 @@ export default function HomePage() {
           <div className="d-flex justify-content-between align-items-end mb-4">
             <div>
               <h2 className="h3 mb-1">Mascotas destacadas</h2>
-              <p className="text-muted mb-0">Perfiles reales de demostración listos para adoptar.</p>
+              <p className="text-muted mb-0">Perfiles de demostración listos para adoptar.</p>
             </div>
             <Link to="/adopciones" className="btn btn-ghost">Ver todas</Link>
           </div>
@@ -146,7 +123,7 @@ export default function HomePage() {
           <div className="d-flex justify-content-between align-items-end mb-4">
             <div>
               <h2 className="h3 mb-1">Campañas activas</h2>
-              <p className="text-muted mb-0">Tu aporte simulado ayuda a mostrar el flujo completo.</p>
+              <p className="text-muted mb-0">Apoya tratamientos, rescates y fundaciones.</p>
             </div>
             <Link to="/crowdfunding" className="btn btn-ghost">Ver campañas</Link>
           </div>
